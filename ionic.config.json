@@ -1,0 +1,7 @@
+{
+  "name": "mon_restau",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
