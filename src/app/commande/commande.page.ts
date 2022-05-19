@@ -65,6 +65,9 @@ export class CommandePage implements OnInit {
             "telephone": this.telephone,
             "plat": this.item
           };
+          if(!this.list_commandes){
+            this.list_commandes = [];
+          }
           this.list_commandes.push(donnees_commande);
           this.saveCommandesList();
           this.alert(response.message);
