@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>compte</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+<ion-card>
+  <ion-card-header mode="ios">
+    <ion-card-subtitle>HISTORIQUE</ion-card-subtitle>
+    <ion-card-title>Mes Commandes</ion-card-title>
+  </ion-card-header>
+</ion-card>
+
+<ion-card *ngFor="let item of list_commandes">
+  <ion-item lines="none">
+    <ion-thumbnail slot="start">
+      <img [src]="item.plat.image" />
+    </ion-thumbnail>
+    <ion-label>
+      <ion-card-title>{{item.plat.nom}}</ion-card-title>
+      <h2>{{item.plat.prix}} FCFA * 1</h2>
+    </ion-label>
+  </ion-item>
+  <ion-card-header class="ion-no-padding ion-padding-start">
+    <ion-card-subtitle mode="ios">Contacts</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    {{item.nom}}, {{item.telephone}}
+  </ion-card-content>
+</ion-card>
+
+<ion-card *ngIf="!list_commandes" style="margin-top:50%">
+  <ion-card-content class="ion-text-center">
+    Aucune commande passée pour l'instant
+  </ion-card-content>  
+</ion-card>
+
+</ion-content>

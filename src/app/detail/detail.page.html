@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Détails</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-card *ngIf="item" class="ion-no-margin">
+    <img [src]="item.image">
+    <ion-card-header mode="ios">
+      <ion-card-title>{{item.nom}}</ion-card-title>
+      <h2>{{item.prix}} FCFA</h2>
+    </ion-card-header>
+  </ion-card>
+  <ion-card-content>
+    <ion-button (click)="navigation(item)" expand="block" shape="round">
+      Commander
+    </ion-button>
+  </ion-card-content>
+    <ion-card>
+      <ion-card-content>
+        {{item.description}}
+      </ion-card-content>
+    </ion-card>
+
+</ion-content>
+
+<ion-footer class="ion-text-center">
+  <small>&copy; Mon Restaurant 2020</small>
+</ion-footer>

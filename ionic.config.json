@@ -1,7 +1,10 @@
 {
   "name": "mon_restau",
   "integrations": {
-    "capacitor": {}
+    "capacitor": {
+      "enabled": false
+    },
+    "cordova": {}
   },
   "type": "angular"
 }

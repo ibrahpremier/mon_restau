@@ -1,0 +1,47 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Commande</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-card class="ion-padding">
+  <ion-item lines="none">
+    <ion-thumbnail slot="start">
+      <img [src]="item.image" />
+    </ion-thumbnail>
+    <ion-label>
+      <ion-card-title>{{item.nom}}</ion-card-title>
+      <h2>{{item.prix}} FCFA * 1</h2>
+    </ion-label>
+  </ion-item>
+</ion-card>
+
+<ion-card>
+  <ion-progress-bar *ngIf="chargement_en_cours" type="indeterminate"></ion-progress-bar>
+    <p class="ion-padding ion-text-center"> Entrez vos informations personnelles puis cliquez sur <ion-text color="primary">TERMINER</ion-text> pour enregistrer votre commande</p>
+  <ion-card-header mode="ios">
+    <ion-card-subtitle>Informations personnelles</ion-card-subtitle>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item>
+      <ion-label position="floating">Nom</ion-label>
+      <ion-input type="text"  minlength="5" [(ngModel)]="nom" ></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="erreur_nom"><p> saisir votre nom</p></ion-text>
+    <ion-item>
+      <ion-label position="floating">Téléphone</ion-label>
+      <ion-input type="tel" minlength="8" maxlength="8" [(ngModel)]="telephone" ></ion-input>
+    </ion-item>
+    <ion-text color="danger" *ngIf="erreur_telephone"><p> saisir votre numéro de téléphone</p></ion-text>
+  </ion-card-content>
+  <ion-button (click)="terminer()" class="ion-margin" expand="block"shape="round" [disabled]="chargement_en_cours">
+   Terminer
+   &nbsp;<ion-spinner *ngIf="chargement_en_cours" name="bubbles"></ion-spinner>
+  </ion-button>
+  <ion-progress-bar *ngIf="chargement_en_cours" value="0.3" buffer="0.6"></ion-progress-bar>
+</ion-card>
+</ion-content>
